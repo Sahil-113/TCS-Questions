@@ -1,0 +1,39 @@
+#include <iostream>
+#include<unordered_map>
+#include<vector>
+#include<string>
+using namespace std;
+
+int main()
+{
+    long total;
+    cout<<"Total Income : ";
+    cin>>total;
+    unordered_map<string,long>mp;
+    vector<string>order;
+    long sum=0;
+    while(1){
+        string category;
+        cout<<"Category : ";
+        cin>>category;
+        if(category=="done"){
+            break;
+        }
+        long expense;
+        cout<<"Expense : ";
+        cin>>expense;
+        mp[category]=expense;
+        order.push_back(category);
+        sum+=expense;
+    }
+    cout<<endl<<"Total Income : "<<total<<endl
+    <<"Total Expenses : "<<sum<<endl
+    <<"Total Savings : "<<total-sum<<endl;
+    cout<<"Category : "<<endl;
+    for(string it : order){
+        cout<<it<<" : "<<mp[it]<<endl;
+    }
+    
+
+    return 0;
+}
